@@ -15,8 +15,10 @@ Women worldwide, including in India, face increasing safety threats in public sp
 4. *User-Friendly Interface*: Designed with simplicity, the app’s interface ensures easy navigation for all users, enabling them to access key features without confusion.
 
 5. *Empowerment Through Information*: The app provides users with vital safety data, like the best routes, nearby emergency services, and safety tips, empowering them to make well-informed decisions while on the move.
+ 
+https://github.com/user-attachments/assets/e86a9c2a-99b5-40da-81be-0be8dd347372
 
-For a startup, economical solutions for *fleet control in emergency situations* can include:
+For a startup,economical solutions for *fleet control in emergency situations* can include:
 
 1. *Use of Shared Fleet Models*: Partner with local drivers or existing ride-sharing services, reducing the need for a dedicated fleet.
 2. *Automated Dispatch Systems*: Utilize low-cost software to manage real-time tracking and prioritize emergency requests.
