@@ -51,3 +51,7 @@ PRESENTATION-
 
 [ADHIVIRA (1).pptx](https://github.com/user-attachments/files/17672107/ADHIVIRA.1.pptx)
 
+
+Figma Desgin Link-
+
+https://www.figma.com/design/Tlr73EC6vEkAbqATJsxQDW/Adhivira-Women-Safety-App(Test)?node-id=0-1&t=ovO20HIvc0mLkUsH-1
