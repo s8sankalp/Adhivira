@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "title": "New Feature Release!",
+        "message": "We have launched a new feature to enhance your experience. Check it out!"
+    },
+    {
+        "id": 2,
+        "title": "Scheduled Maintenance",
+        "message": "Our servers will undergo maintenance on Saturday at 2 AM. Please expect a brief downtime."
+    },
+    {
+        "id": 3,
+        "title": "Developer Tips",
+        "message": "Tip of the day: Use async/await to handle asynchronous code easily in JavaScript!"
+    }
+]
