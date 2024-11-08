@@ -24,3 +24,7 @@ For a startup, economical solutions for *fleet control in emergency situations* 
 4. *Mobile Alerts and Communication*: Leverage existing mobile platforms and communication tools to reduce development and operational costs.
 
 WE Also Build App for Adihivira to make it more simple and reachable all the users.We Create the Baisc Structure of the App UI/UX Design on Figma.
+
+<img width="572" alt="all-pages design" src="https://github.com/user-attachments/assets/d4c866ee-5185-46f7-abd5-fb58fc15dcfc">
+
+Use the URL of the Adhivira Website at"ENTER THE URL OF THE WEBSITE".You can add Local host URL or the URL of Web Host
