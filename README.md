@@ -46,3 +46,8 @@ Nodejs-https://nodejs.org/en
 MongoDB-https://www.mongodb.com/
 
 Expressjs-https://expressjs.com/
+
+PRESENTATION-
+
+[ADHIVIRA (1).pptx](https://github.com/user-attachments/files/17672107/ADHIVIRA.1.pptx)
+
