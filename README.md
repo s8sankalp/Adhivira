@@ -1,5 +1,7 @@
 # Adhivira
 
+![ji](https://github.com/user-attachments/assets/b4c5f3e0-f4c9-45b9-97e4-798028b2993d)
+
 Adhivira is designed to bridge this gap by offering a solution that addresses core safety concerns, equipping women with tools to make informed, secure choices as they go about their daily lives.
 Women worldwide, including in India, face increasing safety threats in public spaces, impacting their freedom and well-being. Despite some resources available, many fall short of offering the real-time support women need to feel safe and empowered. Adhivira addresses this by providing a comprehensive solution that equips women with essential tools for secure, confident navigation in their daily lives.This reality restricts women's mobility, limits their independence, and impacts their quality of life. While various apps and resources aim to support women's safety, there is a pressing need for a comprehensive solution that not only empowers women but also provides real-time support and guidance for safe navigation in everyday situations.
 *Key Features of Adhivira :*
