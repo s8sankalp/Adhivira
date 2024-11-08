@@ -31,7 +31,7 @@ WE Also Build App for Adihivira to make it more simple and reachable all the use
 
 Use the URL of the Adhivira Website at"ENTER THE URL OF THE WEBSITE".You can add Local host URL or the URL of Web Host
 
-Technologies Used-
+𝚃𝚎𝚌𝚑𝚗𝚘𝚕𝚘𝚐𝚒𝚎𝚜 𝚄𝚜𝚎𝚍-
 
 EJS-https://ejs.co/
 
