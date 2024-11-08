@@ -30,3 +30,12 @@ WE Also Build App for Adihivira to make it more simple and reachable all the use
 <img width="572" alt="all-pages design" src="https://github.com/user-attachments/assets/d4c866ee-5185-46f7-abd5-fb58fc15dcfc">
 
 Use the URL of the Adhivira Website at"ENTER THE URL OF THE WEBSITE".You can add Local host URL or the URL of Web Host
+
+Technologies Used-
+EJS-https://ejs.co/
+JavaScript-https://www.javascript.com/
+Python-https://www.python.org/
+Figma-https://www.figma.com
+Nodejs-https://nodejs.org/en
+MongoDB-https://www.mongodb.com/
+Expressjs-https://expressjs.com/
