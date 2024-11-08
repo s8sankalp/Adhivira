@@ -1,0 +1,61 @@
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://cdn.pixabay.com/photo/2024/02/14/05/34/girl-8572400_640.png" alt="Logo"> <!-- Replace with the path to your logo image -->
+            <h1>Nidar Naari</h1>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/safety" target="_blank">Safety Tips</a>
+            <a href="/contacts" target="_blank">Contact</a>
+        </div>
+    </div>
+</header>
+
+
+<style>
+    header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px; /* Adjust as needed */
+            width: auto;
+            margin-right: 15px;
+        }
+        .navbar h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #ffd1d1;
+        }
+</style>

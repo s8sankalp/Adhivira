@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Main container styling */
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #18181b; /* Dark background */
+            color: white;
+            padding: 2.5rem; /* 10 padding */
+        }
+
+        /* Heading styling */
+        .heading {
+            font-size: 1.875rem; /* Equivalent to text-3xl */
+            margin-bottom: 1.25rem; /* 5 margin-bottom */
+        }
+
+        /* File input styling */
+        .file-input {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        /* Submit button styling */
+        .submit-btn {
+            cursor: pointer;
+            padding: 0.625rem 1.25rem; /* 5 padding */
+            border-radius: 0.375rem; /* Rounded corners */
+            background-color: #3b82f6; /* Blue background */
+            color: white;
+            border: none;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="heading">Upload your file</h3>
+        <form autocomplete="off" action="/upload" method="post" enctype="multipart/form-data">
+            <input class="file-input" type="file" name="image">
+            <input class="submit-btn" type="submit" value="Upload file">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- views/addContact.ejs -->
+<%- include('../partials/header') %>
+
+<main style="margin-top: 80px;">
+    <h1>Add New Contact</h1>
+    <div class="form-container">
+        <form action="/contacts" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <button type="submit">Create Contact</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Nidar Naari. All rights reserved.</p>
+</footer>

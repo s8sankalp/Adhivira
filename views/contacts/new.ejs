@@ -1,0 +1,121 @@
+<%- include('../partials/header') %>
+
+<body>
+    <main style="margin-top: 80px;"> <!-- Added margin-top to main -->
+        <h1>Add New Contact</h1>
+        <div class="form-container"> <!-- New div for form content -->
+            <form action="/contacts" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+                <br>
+                <label for="phone">Phone:</label>
+                <input type="text" name="phone" id="phone" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <br>
+                <button type="submit">Create Contact</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Inline CSS Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff 30%, #f3f4f6 100%);
+            color: #333;
+            background-image: url('https://media.istockphoto.com/id/487729433/photo/somethings-not-right-here.jpg?s=612x612&w=0&k=20&c=nlzTWorIvABTaI1J3dhE7HbvzuihNSRPchwt17LPn_k=');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        header {
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative; /* Ensure it's positioned normally */
+            z-index: 10; /* Optional: Set z-index to ensure it's on top */
+        }
+
+        main {
+            flex: 1; /* Allow main content to expand */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: white; /* White background for the form container */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            max-width: 400px; /* Limit the width */
+            margin: auto; /* Center the form container */
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between input elements */
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px;
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4f50;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+            color: white;
+        }
+    </style>
+
+    <script>
+        // Function to initiate a call
+        function makeCall(phoneNumber) {
+            window.location.href = `tel:${phoneNumber}`;
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Nidar Naari. All rights reserved.</p>
+    </footer>
+</body>

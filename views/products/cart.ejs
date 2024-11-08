@@ -1,0 +1,14 @@
+<% title = "Shopping Cart" %> <!-- Set the page title -->
+<h1>Your Cart</h1>
+<ul>
+    <% cartItems.forEach(item => { %>
+        <li>
+            <h2><%= item.name %></h2>
+            <p>Price: $<%= item.price %></p>
+            <p>Quantity: <%= item.quantity %></p>
+            <button class="btn remove-from-cart" data-product-id="<%= item.id %>">Remove</button>
+        </li>
+    <% }) %>
+</ul>
+<a href="/checkout" class="btn">Checkout</a>
+<a href="/">Continue Shopping</a>

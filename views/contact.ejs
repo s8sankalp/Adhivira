@@ -1,0 +1,129 @@
+<%- include('partials/header') %>
+
+<main>
+  <h1>Your Emergency Contacts</h1>
+  <div id="emergency-contacts">
+    <% contacts.forEach(contact => { %>
+      <div class="contact-card">
+        <h3><%= contact.name %></h3>
+        <p>Phone: <%= contact.phone %></p>
+        <p>Email: <%= contact.email %></p>
+        <button onclick="makeCall('<%= contact.phone %>')" class="btn">Call</button>
+        <button onclick="sendMessage('<%= contact.phone %>')" class="btn">Send Message</button>
+      </div>
+    <% }) %>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2024 Nidar Naari. All rights reserved.</p>
+</footer>
+
+<!-- Inline CSS Styles -->
+<style>
+  /* Background gradient for the entire page */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+    color: #ffffff;
+  }
+
+  /* Main content styling */
+  main {
+    text-align: center;
+    margin: 20px;
+  }
+
+  /* Style the title */
+  main h1 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+
+  /* Container for emergency contacts */
+  #emergency-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    padding: 0 10px;
+  }
+
+  /* Contact card styling */
+  .contact-card {
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Add hover effect on contact cards */
+  .contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Contact name styling */
+  .contact-card h3 {
+    font-size: 1.6em;
+    margin: 0;
+    color: #e04c3f;
+  }
+
+  /* Contact details styling */
+  .contact-card p {
+    font-size: 1em;
+    margin: 10px 0;
+    color: #555;
+  }
+
+  /* Button styling for call and message */
+  .contact-card .btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background: linear-gradient(145deg, #5dc7ee, #e04c3f);
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  /* Button hover effect */
+  .contact-card .btn:hover {
+    background: linear-gradient(145deg, #e04c3f, #5dc7ee);
+  }
+
+  /* Footer styling */
+  footer {
+    margin-top: auto;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 0.9em;
+  }
+</style>
+
+<script>
+  // JavaScript functions for Call and Send Message
+  function makeCall(phoneNumber) {
+    window.location.href = `tel:${phoneNumber}`;
+  }
+
+  function sendMessage(phoneNumber) {
+    window.location.href = `sms:${phoneNumber}`;
+  }
+</script>

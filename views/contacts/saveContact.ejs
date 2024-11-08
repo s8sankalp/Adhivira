@@ -1,0 +1,102 @@
+<main>
+    <h1>Your Emergency Contacts</h1>
+    <div id="emergency-contacts">
+      <% contacts.forEach(contact => { %>
+        <div class="contact-card">
+          <h3><%= contact.name %></h3>
+          <p>Phone: <%= contact.phone %></p>
+          <p>Email: <%= contact.email %></p>
+          <div class="contact-buttons">
+            <a href="tel:<%= contact.phone %>" class="btn call-btn">Call</a>
+            <a href="sms:<%= contact.phone %>" class="btn message-btn">Message</a>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+  
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f9f9f9 30%, #e6e6e6 100%);
+      color: #333;
+      padding: 20px;
+    }
+  
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #ff6f61;
+    }
+  
+    #emergency-contacts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .contact-card {
+      background-color: white;
+      padding: 20px;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px; /* Set a fixed width for consistency */
+      transition: transform 0.2s;
+    }
+  
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+  
+    .contact-card h3 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    .contact-card p {
+      margin-bottom: 5px;
+      color: #555;
+    }
+  
+    .contact-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+  
+    .btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+  
+    .call-btn {
+      background-color: #28a745; /* Green for call */
+    }
+  
+    .call-btn:hover {
+      background-color: #218838; /* Darker green on hover */
+    }
+  
+    .message-btn {
+      background-color: #007bff; /* Blue for message */
+    }
+  
+    .message-btn:hover {
+      background-color: #0069d9; /* Darker blue on hover */
+    }
+  </style>
+  

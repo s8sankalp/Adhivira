@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Full-screen container with background color and padding */
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #18181b;
+            color: white;
+            padding: 2.5rem;
+        }
+
+        /* Aligning logout button to the end of the flex container */
+        .logout-container {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-bottom: 1.25rem;
+        }
+
+        .logout-btn {
+            background-color: #ef4444;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Greeting text styling */
+        .greeting {
+            font-size: 1.875rem;
+            margin-bottom: 1.25rem;
+            font-weight: lighter;
+        }
+
+        .edit-prompt {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Styling for the post content textarea */
+        .post-content {
+            padding: 0.75rem;
+            outline: none;
+            width: 33.33%;
+            resize: none;
+            background-color: transparent;
+            border: 2px solid #27272a;
+            border-radius: 0.375rem;
+            color: white;
+        }
+
+        /* Update button styling */
+        .update-btn {
+            width: 10rem;
+            padding: 0.5rem 0.75rem;
+            background-color: #facc15;
+            color: black;
+            display: block;
+            border-radius: 0.375rem;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logout-container">
+            <a class="logout-btn" href="/post/login">Logout</a>
+        </div>
+        <h3 class="greeting"><span>Hello</span></h3>
+
+        <h5 class="edit-prompt">Edit your post</h5>
+        <form method="post" action="/update/<%= post._id %>">
+            <textarea placeholder="What's on your mind?!" class="post-content" name="content"><%= post.content %></textarea>
+            <input class="update-btn" type="submit" value="Update Post">
+        </form>
+    </div>
+</body>
+
+</html>

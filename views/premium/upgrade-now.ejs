@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to Premium</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic page styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        /* Payment container */
+        .payment-container {
+            width: 90%;
+            max-width: 500px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        /* Header styling */
+        .payment-header {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Image styling */
+        .premium-image {
+            width: 100px;
+            margin: 15px auto;
+        }
+
+        /* Description */
+        .description {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Form styling */
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input field styling */
+        .input-group {
+            position: relative;
+        }
+
+        .input-group input {
+            width: 80%;
+            padding: 12px 15px;
+            padding-left: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        /* Payment button */
+        .payment-button {
+            padding: 15px;
+            background-color: #4a90e2;
+            border: none;
+            color: #fff;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .payment-button:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2 class="payment-header">Upgrade to Premium</h2>
+        <img src="https://via.placeholder.com/100" alt="Premium" class="premium-image">
+        <p class="description">Unlock exclusive features and enjoy the full benefits of our premium membership.</p>
+
+        <form class="payment-form" action="/process-payment" method="POST">
+            <!-- Card Holder Name -->
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="name" placeholder="Card Holder's Name" required>
+            </div>
+
+            <!-- Card Number -->
+            <div class="input-group">
+                <i class="fas fa-credit-card"></i>
+                <input type="text" name="cardNumber" placeholder="Card Number" required>
+            </div>
+
+            <!-- Expiration Date -->
+            <div class="input-group">
+                <i class="fas fa-calendar-alt"></i>
+                <input type="text" name="expiryDate" placeholder="MM/YY" required>
+            </div>
+
+            <!-- CVV -->
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="cvv" placeholder="CVV" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button  type="submit"  class="payment-button" onclick="window.location.href='/purchase/1'">Pay Now - $9.99</button>
+
+        </form>
+    </div>
+</body>
+</html>

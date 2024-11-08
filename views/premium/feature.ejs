@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+        }
+
+        /* Container for feature cards */
+        .features-container {
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+            max-width: 1200px;
+            gap: 40px;
+            margin-top:20vh;
+        }
+
+        /* Style for each feature card */
+        .feature-card {
+            flex: 1;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            color: #fff;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        /* Gradient styles for the cards */
+        .feature-card.basic {
+            background: linear-gradient(135deg, #b671f3, #4a00e0);
+        }
+
+        .feature-card.premium {
+            background: linear-gradient(135deg, #f37335, #fdc830);
+        }
+
+        /* Hover effect */
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Title styling */
+        .feature-title {
+            font-size: 1.7em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Icon style for title */
+        .feature-title i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Feature list styling */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .feature-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+        }
+
+        .feature-list i {
+            margin-right: 8px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Button styling */
+        .cta-button {
+            margin-top: 15px;
+            margin-right: 15px;
+            padding: 12px 28px;
+            font-size: 1em;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Feature images */
+        .feature-image {
+            width: 60%;
+            margin: 15px auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #fff 30%, #f3f4f6 100%);
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden; /* Prevents horizontal scroll due to animations */
+        background-image: url('https://img.freepik.com/free-vector/white-elegant-texture-wallpaper_23-2148417584.jpg?semt=ais_hybrid'); /* Replace with the actual path of your image */
+        background-size: cover; /* Ensures the image covers the whole page */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center; /* Centers the image */
+        background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+        font-family: 'Arial', sans-serif; /* Ensures text remains visible */
+      }
+      
+      /* Keyframes for Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.3);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      /* Animated Classes */
+      .animated-section {
+        animation: fadeIn 1s ease-out forwards;
+      }
+      
+      .animated-card {
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+      }
+      
+      .slideInLeft {
+        animation-name: slideInLeft;
+      }
+      
+      .slideInRight {
+        animation-name: slideInRight;
+      }
+      
+      .bounceIn {
+        animation: bounceIn 1.2s ease-out;
+      }
+      
+      /* Header Styles */
+      header {
+        background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+
+        color: white;
+        padding: 20px 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      .navbar h1 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      
+      .navbar nav ul {
+        list-style: none;
+        display: flex;
+      }
+      
+      .navbar nav ul li {
+        margin-left: 30px;
+      }
+      
+      .navbar nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      
+      .navbar nav ul li a:hover {
+        color: #ffe600; /* Gold hover effect */
+      }
+      
+      /* Main Content Styles */
+      main {
+        max-width: 1200px;
+        margin: 100px auto 40px; /* Adjust for fixed header */
+        padding: 20px;
+      }
+      
+      #map-section,
+      #actions-section {
+        margin-bottom: 40px;
+      }
+      
+      .card {
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 15px;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+      }
+      #dikhega {
+        display: flex;
+      }
+      
+      #map {
+        width: 70%;
+        height: 400px;
+        margin-top: 20px;
+        margin-right: 10px;
+        border-radius: 10px;
+        border: 2px solid #ff6f61; /* Border around map */
+      }
+      
+
+      #content {
+        display: flex;
+      }
+      #content1 {
+        width: 50%;
+        height: 400px;
+        margin-top: 20px;
+        margin-right: 10px;
+        border-radius: 10px;
+        border: 2px solid #ff6f61; /* Border around map */
+      }
+
+      #content2 {
+        width: 50%;
+        height: 400px;
+        margin-top: 20px;
+        margin-left: 10px;
+        border-radius: 10px;
+        border: 2px solid #ff6f61; /* Border around map */
+      }
+
+.image-container {
+  width: 100%;
+  height: 90%;
+  background-color: white;
+  margin: 20px;
+  margin-top: 55px;
+  border-radius: 20px;
+  overflow: hidden;
+  filter: drop-shadow(10px 10px 20px
+  rgb(214, 213, 213));
+}
+ .image-container img{
+  object-fit: cover;
+    height: 40%;
+    width: 100%;
+ }
+
+ .polygon-image {
+  width: 30%;
+  height: 50%;
+  background-color: white;
+  margin: 20px;
+  margin-top: 55px;
+  border-radius: 20px;
+  overflow: hidden;
+  filter: drop-shadow(10px 10px 20px
+  rgb(214, 213, 213));
+ }
+
+ .polygon-image img{
+  object-fit: cover;
+    height: 100%;
+    width: 100%;
+ }
+
+
+      
+      #action-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      
+      button.btn {
+        padding: 15px 40px;
+        font-size: 18px;
+        background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        transition: background 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      button.btn:hover {
+        background: linear-gradient(135deg, #ff4f50 0%, #e63a3a 100%);
+        transform: translateY(-5px);
+      }
+      
+      button.btn:active {
+        transform: scale(0.98);
+      }
+
+
+      .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px; /* Adjust as needed */
+            width: auto;
+            margin-right: 15px;
+        }
+      
+      /* Footer Styles */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+      
+      footer p {
+        margin: 0;
+        font-size: 14px;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        #action-buttons {
+          flex-direction: column;
+        }
+      
+        button.btn {
+          width: 100%; /* Full-width buttons on mobile */
+          padding: 15px;
+          margin-bottom: 20px;
+        }
+      
+        .navbar nav ul {
+          flex-direction: column;
+          text-align: center;
+        }
+      
+        .navbar nav ul li {
+          margin: 10px 0;
+        }
+      
+        #map {
+          height: 300px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .navbar h1 {
+          font-size: 20px;
+        }
+      
+        button.btn {
+          font-size: 16px;
+        }
+      }
+      #news-container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      
+      .news-item {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .news-item h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.2rem;
+      }
+      
+      .news-item p {
+        margin: 0;
+      }
+      
+      .news-item a {
+        color: #007BFF;
+        text-decoration: none;
+      }
+      
+      .news-item a:hover {
+        text-decoration: underline;
+      }
+      .logo img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-right:30px;
+}
+    </style>
+</head>
+<body>
+      <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="/images/adhivira123.png" alt="Logo"> 
+        <h1> Adhivira </h1> <!-- Dynamic app name -->
+    </div>
+      <nav>
+        <ul>
+          <li><a href="/premium/feature">Go Premium</a></li> <!-- Update paths for server-side routing -->
+          <li><a href="/">Home</a></li> <!-- Update paths for server-side routing -->
+          <li><a href="/safety">Safety Tips & Modules</a></li>
+          <li><a href="/contacts">Contacts</a></li>
+          <li><a href="signin">Sign In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+    <div class="features-container">
+        <!-- Basic Feature Card -->
+        <div class="feature-card basic">
+            <div class="feature-title">
+                <i class="fas fa-user-shield"></i> Basic Features
+            </div>
+            <img src="https://via.placeholder.com/150" alt="Basic Features" class="feature-image">
+            <ul class="feature-list">
+                <li><i class="fas fa-map-marker-alt"></i> Location Sharing</li>
+                <li><i class="fas fa-bell"></i> Real-Time Alerts</li>
+                <li><i class="fas fa-users"></i> Contact Management</li>
+                <li><i class="fas fa-book"></i> Access to Safety Tips</li>
+            </ul>
+            <button class="cta-button" onclick="window.location.href='/'">Learn More</button>           
+            <button class="cta-button" onclick="window.location.href='/'">Choose Free</button>
+
+        </div>
+
+        <!-- Premium Feature Card -->
+        <div class="feature-card premium">
+            <div class="feature-title">
+                <i class="fas fa-crown"></i> Premium Features
+            </div>
+            <img src="https://via.placeholder.com/150" alt="Premium Features" class="feature-image">
+            <ul class="feature-list">
+                <li><i class="fas fa-map"></i> Advanced Location Tracking</li>
+                <li><i class="fas fa-headset"></i> 24/7 Priority Support</li>
+                <li><i class="fas fa-shield-alt"></i> Enhanced Security Features</li>
+                <li><i class="fas fa-video"></i> Live Safety Assistance</li>
+            </ul>
+            <button class="cta-button" onclick="window.location.href='/newPremium'">Already got Premium?</button>
+            <button class="cta-button" onclick="window.location.href='/premium/upgrade-now'">Upgrade Now</button>        </div>
+    </div>
+</body>
+</html>

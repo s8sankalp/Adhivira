@@ -1,0 +1,175 @@
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="path/to/your/logo.png" alt="Logo"> <!-- Replace with the path to your logo image -->
+            <h1>Nidar Naari</h1>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/safety" target="_blank">Safety Tips</a>
+            <a href="/contacts" target="_blank">Contact</a>
+        </div>
+    </div>
+  </header>
+  
+  <main>
+    <div class="form-container"> <!-- New div for form content -->
+        <h1>Edit Contact</h1>
+        <form action="/contacts/<%= contact._id %>?_method=PUT" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="<%= contact.name %>" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" name="phone" id="phone" value="<%= contact.phone %>" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" value="<%= contact.email %>" required>
+            </div>
+            <button type="submit" class="submit-button">Update Contact</button>
+        </form>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2024 Nidar Naari</p>
+  </footer>
+  
+  <!-- Inline CSS Styles -->
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+  
+    body {
+        display: flex; /* Use flexbox for the body */
+        flex-direction: column; /* Arrange children in a column */
+        min-height: 100vh; /* Full viewport height */
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #fff 30%, #f3f4f6 100%);
+        color: #333;
+        background-image: url('https://media.istockphoto.com/id/487729433/photo/somethings-not-right-here.jpg?s=612x612&w=0&k=20&c=nlzTWorIvABTaI1J3dhE7HbvzuihNSRPchwt17LPn_k=');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+    }
+  
+    header {
+        background-color: #ff6f61;
+        color: white;
+        padding: 20px 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        position: fixed; /* Keep header fixed */
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+  
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+  
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+  
+    .logo img {
+        height: 50px; /* Adjust as needed */
+        width: auto;
+        margin-right: 15px;
+    }
+  
+    main {
+        margin-top: 80px; /* Space for the fixed header */
+        padding: 20px;
+        flex: 1; /* Allow main to expand and take remaining space */
+    }
+  
+    .form-container {
+        max-width: 400px;
+        margin: auto;
+        background-color: rgba(243, 244, 246, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+  
+    .contact-form {
+        width: 100%; /* Responsive width */
+    }
+  
+    .form-group {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+  
+    .form-group label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+  
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+  
+    .form-group input:focus {
+        border-color: #ff6f61;
+        outline: none;
+    }
+  
+    .submit-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #ff6f61;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+  
+    .submit-button:hover {
+        background-color: #ff4f50;
+    }
+  
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        position: relative; /* Keeps footer at the bottom */
+        bottom: 0;
+        width: 100%;
+    }
+  </style>
+  

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .payment-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .payment-container h2 {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .order-message {
+            display: none;
+            margin-top: 20px;
+            color: #28a745;
+            font-size: 18px;
+            font-weight: bold;
+            animation: happinessAnimation 1s ease-in-out infinite;
+        }
+
+        /* Happiness Animation */
+        @keyframes happinessAnimation {
+            0%, 100% { transform: translateY(0); color: #28a745; }
+            25% { transform: translateY(-10px); color: #ff5722; }
+            50% { transform: translateY(0); color: #ff9800; }
+            75% { transform: translateY(10px); color: #ffc107; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-container">
+    <h2>Product Payment</h2>
+    <form id="paymentForm">
+        <div class="form-group">
+            <label for="name">Name on Card</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" maxlength="16" required>
+        </div>
+        <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" id="expiryDate" placeholder="MM/YY" required>
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" maxlength="3" required>
+        </div>
+        <button type="button" class="btn" onclick="processPayment()">Pay Now</button>
+    </form>
+
+    <div class="order-message" id="orderMessage">
+        🎉Woo Hoo Order Placed Successfully! 🎉
+    </div>
+</div>
+
+<script>
+    function processPayment() {
+        // Simulate payment processing
+        const orderMessage = document.getElementById('orderMessage');
+        const paymentForm = document.getElementById('paymentForm');
+
+        // Hide the form and show the order confirmation message with animation
+        paymentForm.style.display = 'none';
+        orderMessage.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

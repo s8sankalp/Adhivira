@@ -1,0 +1,126 @@
+<%- include('../partials/header') %>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #fff 30%, #f3f4f6 100%);
+        color: #333;
+        background-image: url('https://media.istockphoto.com/id/487729433/photo/somethings-not-right-here.jpg?s=612x612&w=0&k=20&c=nlzTWorIvABTaI1J3dhE7HbvzuihNSRPchwt17LPn_k=');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Ensure full viewport height */
+    }
+
+    header {
+        background-color: #ff6f61;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+
+    main {
+        margin-top: 80px; /* Ensure content is below fixed header */
+        padding: 20px;
+        flex: 1; /* Allow main content to expand */
+        text-align: center;
+    }
+
+    .contact-card {
+        background-color: rgba(243, 244, 246, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .button-group {
+        margin: 20px 0;
+    }
+
+    .edit-button, .delete-button, .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff6f61;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 0 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .delete-button {
+        background-color: #e74c3c; /* Different color for delete button */
+    }
+
+    .edit-button:hover, .delete-button:hover {
+        background-color: #ff4f50;
+    }
+
+    .back-button {
+        background-color: #3498db; /* Blue color for back button */
+    }
+
+    .back-button:hover {
+        background-color: #2980b9;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        margin-top: auto; 
+    }
+</style>
+
+<main>
+    <div class="contact-card">
+        <h1><%= contact.name %></h1>
+        <p>Email: <%= contact.email %></p>
+        <p>Phone: <%= contact.phone %></p>
+
+        <div class="button-group">
+            <a href="/contacts/<%= contact._id %>/edit" class="edit-button">Edit</a>
+            <form action="/contacts/<%= contact._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+        </div>
+        <a href="/contacts" class="back-button">Back to Contacts</a>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Nidar Naari. All rights reserved.</p>
+</footer>
+
+<script>
+    // Function to initiate a call
+    function makeCall(phoneNumber) {
+        window.location.href = `tel:${phoneNumber}`;
+    }
+</script>

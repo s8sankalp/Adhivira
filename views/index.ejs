@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>women safety app</title> <!-- Static title -->
+  <style>/* Global Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #fff 30%, #f3f4f6 100%);
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden; /* Prevents horizontal scroll due to animations */
+        background-image: url('https://img.freepik.com/free-vector/white-elegant-texture-wallpaper_23-2148417584.jpg?semt=ais_hybrid'); /* Replace with the actual path of your image */
+        background-size: cover; /* Ensures the image covers the whole page */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center; /* Centers the image */
+        background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+        font-family: 'Arial', sans-serif; /* Ensures text remains visible */
+      }
+      
+      
+      /* Keyframes for Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.3);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      /* Animated Classes */
+      .animated-section {
+        animation: fadeIn 1s ease-out forwards;
+      }
+      
+      .animated-card {
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+      }
+      
+      .slideInLeft {
+        animation-name: slideInLeft;
+      }
+      
+      .slideInRight {
+        animation-name: slideInRight;
+      }
+      
+      .bounceIn {
+        animation: bounceIn 1.2s ease-out;
+      }
+      
+      /* Header Styles */
+      header {
+        background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+
+        color: white;
+        padding: 20px 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      .navbar h1 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      
+      .navbar nav ul {
+        list-style: none;
+        display: flex;
+      }
+      
+      .navbar nav ul li {
+        margin-left: 30px;
+      }
+      
+      .navbar nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      
+      .navbar nav ul li a:hover {
+        color: #ffe600; /* Gold hover effect */
+      }
+      
+      /* Main Content Styles */
+      main {
+        max-width: 1200px;
+        margin: 100px auto 40px; /* Adjust for fixed header */
+        padding: 20px;
+      }
+      
+      #map-section,
+      #actions-section {
+        margin-bottom: 40px;
+      }
+      
+      .card {
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 15px;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+      }
+      #dikhega {
+        display: flex;
+      }
+      
+      #map {
+        width: 70%;
+        height: 400px;
+        margin-top: 20px;
+        margin-right: 10px;
+        border-radius: 10px;
+        border: 2px solid #ff6f61; /* Border around map */
+      }
+      
+
+      #content {
+        display: flex;
+      }
+      #content1 {
+        width: 50%;
+        height: 400px;
+        margin-top: 20px;
+        margin-right: 10px;
+        border-radius: 10px;
+        border: 2px solid #ff6f61; /* Border around map */
+      }
+
+      #content2 {
+        width: 50%;
+        height: 400px;
+        margin-top: 20px;
+        margin-left: 10px;
+        border-radius: 10px;
+        border: 2px solid #ff6f61; /* Border around map */
+      }
+
+.image-container {
+  width: 100%;
+  height: 90%;
+  background-color: white;
+  margin: 20px;
+  margin-top: 55px;
+  border-radius: 20px;
+  overflow: hidden;
+  filter: drop-shadow(10px 10px 20px
+  rgb(214, 213, 213));
+}
+ .image-container img{
+  object-fit: cover;
+    height: 40%;
+    width: 100%;
+ }
+
+ .polygon-image {
+  width: 30%;
+  height: 50%;
+  background-color: white;
+  margin: 20px;
+  margin-top: 55px;
+  border-radius: 20px;
+  overflow: hidden;
+  filter: drop-shadow(10px 10px 20px
+  rgb(214, 213, 213));
+ }
+
+ .polygon-image img{
+  object-fit: cover;
+    height: 100%;
+    width: 100%;
+ }
+
+
+      
+      #action-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      
+      button.btn {
+        padding: 15px 40px;
+        font-size: 18px;
+        background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        transition: background 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      button.btn:hover {
+        background: linear-gradient(135deg, #ff4f50 0%, #e63a3a 100%);
+        transform: translateY(-5px);
+      }
+      
+      button.btn:active {
+        transform: scale(0.98);
+      }
+
+
+      .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px; /* Adjust as needed */
+            width: auto;
+            margin-right: 15px;
+        }
+      
+      /* Footer Styles */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+        color: white;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+      
+      footer p {
+        margin: 0;
+        font-size: 14px;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        #action-buttons {
+          flex-direction: column;
+        }
+      
+        button.btn {
+          width: 100%; /* Full-width buttons on mobile */
+          padding: 15px;
+          margin-bottom: 20px;
+        }
+      
+        .navbar nav ul {
+          flex-direction: column;
+          text-align: center;
+        }
+      
+        .navbar nav ul li {
+          margin: 10px 0;
+        }
+      
+        #map {
+          height: 300px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .navbar h1 {
+          font-size: 20px;
+        }
+      
+        button.btn {
+          font-size: 16px;
+        }
+      }
+      #news-container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      
+      .news-item {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .news-item h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.2rem;
+      }
+      
+      .news-item p {
+        margin: 0;
+      }
+      
+      .news-item a {
+        color: #007BFF;
+        text-decoration: none;
+      }
+      .flex{
+        display:flex;
+      }
+      
+      .news-item a:hover {
+        text-decoration: underline;
+      }
+      .logo img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-right:30px;
+}
+.popup {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 8px;
+            display: none;
+            z-index: 1000;
+        }
+
+        /* Close button inside the popup */
+        .popup .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background-color: transparent;
+            color: white;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+      </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div id="popup" class="popup">
+      <button class="close-btn" onclick="closePopup()">X</button>
+      <div id="popup-content"></div>
+  </div>
+    <div class="navbar">
+      <div class="logo">
+        <img src="/images/adhivira123.png" alt="Logo"> 
+        <h1> Adhivira </h1> <!-- Dynamic app name -->
+    </div>
+      <nav>
+        <ul>
+          <li><a href="/premium/feature">Go Premium</a></li> <!-- Update paths for server-side routing -->
+          <li><a href="/">Home</a></li> <!-- Update paths for server-side routing -->
+          <li><a href="/safety">Safety Tips & Modules</a></li>
+          <li><a href="/contacts">Contacts</a></li>
+          <li><a href="signin">Sign In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="map-section" class="animated-section fadeIn">
+      <div  class="card animated-card slideInLeft">
+        <!-- <h2>Your Location</h2>
+        <div id="dikhega">
+       <div id="map"></div> -->
+       <div class="flex">
+        <div class="polygon-image" id="polygoncontent">
+          <img src="/images/image1.png" alt="image">
+        </div>  
+       
+       
+        <div class="polygon-image" id="polygoncontent">
+          <img src="/images/image22.png" alt="image">
+        </div>  
+        <div class="polygon-image" id="polygoncontent">
+          <img src="/images/image33.png" alt="image">
+        </div>  
+        
+      </div>
+        </div>
+      </div>
+      <div><h1 style="font-size: 70px;">Empowering safety, every step of the way </h1></div>
+      <div class="card animated-card slideInRight">
+        <h2>Stay Calm We Are On The Way</h2>
+        <button onclick="window.location.href='/transport';" id="products" class="btn bounceIn"> One Tap Emergency</button>
+
+
+        <div id="content">
+          <div id="image1" class="image-container">
+            <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0FdAYHxjI2KoE3QfgK3UcP_fZMp44a8i1mA&s" alt="Women-safety-app-features" class="image">
+          </div>
+          <div id="image1" class="image-container">
+            <img  src="https://youthincmag.com/wp-content/uploads/2024/08/dc98cf29c168ec21ea3a2a05a4bd74f2.jpg" alt="app features" class="image">
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="actions-section" class="animated-section fadeIn">
+      <div class="card animated-card slideInRight">
+        <h2>Actions</h2>
+        <div id="action-buttons">
+          <button onclick="window.location.href='/contacts/new';" id="location" class="btn bounceIn">Add contact</button>
+          <button  onclick="window.location.href='/liveLocation';" id="send-location" class="btn bounceIn">Send location</button>
+          <button onclick="window.location.href='/products/index';" id="products" class="btn bounceIn"> Safety products</button>
+
+          <a href="https://www.uber.com/"><button  id="call-uber" class="btn bounceIn">Call Uber</button></a>
+        </div>
+      </div>
+    </section>
+    
+    <div id="news-container">
+      <h2>Recent Women's Safety News</h2>
+      <!-- News articles dynamically inserted via JS -->
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 Women Safety App | All Rights Reserved</p> <!-- Dynamic year and app name -->
+  </footer>
+  <script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "1WDWOJIMBbF4yO46yLv5b",
+    domain: "www.chatbase.co"
+    }
+    </script>
+    <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="1WDWOJIMBbF4yO46yLv5b"
+    domain="www.chatbase.co"
+    defer>
+    </script>
+  <!-- <script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "AM4yP5Bcw6xKWFKjNdWki",
+    domain: "www.chatbase.co"
+    }
+    </script>
+    <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="AM4yP5Bcw6xKWFKjNdWki"
+    domain="www.chatbase.co"
+    defer>
+    </script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlbz2lSX_ldpeddTs8J1MZmNriPphFEE0&callback=initMap&v=weekly&solution_channel=GMP_CCS_geocodingservice_v2"></script>
+  <script>
+    //news fetch starts
+  // Fetch the news data from the /news endpoint
+  // fetch('/news')
+  //   .then(response => response.json())
+  //   .then(newsData => {
+  //     // Loop through the news data and display alerts
+  //     newsData.forEach(newsItem => {
+  //       alert(newsItem.title);  // Assuming the JSON contains 'title' field
+  //     });
+  //   })
+  //   .catch(error => console.error('Error fetching news:', error));
+
+
+    //news fetch ends
+    //1
+    document.addEventListener('DOMContentLoaded', () => {
+            // Function to show the popup with the news content
+            function showPopup(newsItem) {
+                const popup = document.getElementById('popup');
+                const popupContent = document.getElementById('popup-content');
+
+                // Set the content of the popup
+                popupContent.innerHTML = `
+                    <h3>${newsItem.title}</h3>
+                    <p>${newsItem.content}</p>
+                `;
+
+                // Show the popup
+                popup.style.display = 'block';
+
+                // Automatically hide the popup after 5 seconds
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 5000);
+            }
+
+            // Function to close the popup manually
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+            }
+
+            // Fetch news data from the server
+            fetch('/news')
+                .then(response => response.json())
+                .then(newsData => {
+                    // Loop through the news items and show the popup for each one
+                    newsData.forEach(newsItem => {
+                        showPopup(newsItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching news:', error));
+        });
+    //2
+    function initMap() {
+        
+        const userPosition = { lat: 28.7041, lng: 77.1025 };  //yha backend se ayegi location 
+        
+        const map = new google.maps.Map(document.getElementById('map'), {
+          center: userPosition,
+          zoom: 15,
+        });
+      
+        new google.maps.Marker({
+          position: userPosition,
+          map: map,
+        });
+      }
+
+      document.getElementById('send-location').addEventListener('click', function() {
+        alert("your location send to emergency number");
+        
+      });
+      
+      
+      
+      // Sample news data
+      const newsData = [
+        {
+          title: "New Initiative for Women's Safety in Urban Areas",
+          description: "A new government initiative aims to improve women's safety in major urban areas by increasing security patrols and installing more CCTV cameras.",
+          url: "https://example.com/news-initiative-urban-areas",
+          publishedAt: "2024-10-21T10:30:00Z"
+        },
+        {
+          title: "Mobile App Launched for Women's Safety",
+          description: "A new mobile app allows women to instantly send their location to emergency contacts during unsafe situations.",
+          url: "https://example.com/mobile-app-launch",
+          publishedAt: "2024-10-20T14:15:00Z"
+        },
+        {
+          title: "Police Increase Patrols in Response to Recent Incidents",
+          description: "Following a rise in safety concerns, local police have increased patrols in high-risk areas to ensure better protection for women.",
+          url: "https://example.com/police-patrols-response",
+          publishedAt: "2024-10-18T08:00:00Z"
+        }
+      ];
+      
+      // Function to display news on the page
+      function displayNews() {
+        const newsContainer = document.getElementById('news-container');
+      
+        newsData.forEach(article => {
+          const newsItem = document.createElement('div');
+          newsItem.classList.add('news-item');
+      
+          newsItem.innerHTML = `
+            <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+            <p>${article.description}</p>
+            <small>Published at: ${new Date(article.publishedAt).toLocaleString()}</small>
+          `;
+      
+          newsContainer.appendChild(newsItem);
+        });
+      }
+      
+      
+      // Call the function to display news when the page loads
+      displayNews();
+      
+      
+      //ye site open hote hi map dikhega 
+      window.onload = initMap;
+      </script> <!-- Make sure the path is correct -->
+</body>
+</html>

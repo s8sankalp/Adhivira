@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Safety - Location Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+            color: #333;
+            text-align: center;
+        }
+
+        /* Map Container */
+        #map {
+            width: 80%;
+            height: 400px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Send Location Button */
+        .location-button {
+            margin: 15px auto;
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .location-button:hover {
+            background-color: #e0554b;
+        }
+
+        /* Safety Tips Section */
+        .tips-section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .tips-section h2 {
+            color: #ff6f61;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .tips-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .tips-section li {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #555;
+            text-align: left;
+        }
+        .tips-section li::before {
+            content: "✔ ";
+            color: #ff6f61;
+        }
+
+        /* Dialog Box */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal {
+            background-color: #fff;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .modal h3 {
+            color: #ff6f61;
+            margin-bottom: 10px;
+        }
+        .modal p {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .modal ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .modal ul li {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .close-button {
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .close-button:hover {
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Map Section -->
+    <div id="map"></div>
+    
+    <!-- Send Location Button -->
+    <button class="location-button" onclick="openModal()">Send Location</button>
+
+    <!-- Safety Tips Section -->
+    <div class="tips-section">
+        <h2>Safety Tips</h2>
+        <ul>
+            <li>Share your location with trusted contacts when traveling alone.</li>
+            <li>Always have emergency contacts ready for quick access.</li>
+            <li>Stay aware of your surroundings, especially in unfamiliar areas.</li>
+            <li>Trust your instincts – if something feels wrong, take precautions.</li>
+        </ul>
+    </div>
+
+    <!-- Modal Dialog for Emergency Contacts -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h3>Emergency Contact Numbers</h3>
+            <p>Your live location has been sent to your emergency contacts.</p>
+            <ul>
+                <li><strong>Police:</strong> 100</li>
+                <li><strong>Women’s Safety Helpline:</strong> 1091</li>
+                <li><strong>Child Helpline:</strong> 1098</li>
+            </ul>
+            <button class="close-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/4.8.0/socket.io.min.js" integrity="sha384-OoIbkvzsFFQAG88r+IqMAjyOtYDPGO0cqK5HF5Uosdy/zUEGySeAzytENMDynREd" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // Function to open the modal
+        function openModal() {
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

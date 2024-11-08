@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Full-screen container with background color and padding */
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #18181b;
+            color: white;
+            padding: 2.5rem;
+        }
+
+        /* Heading style */
+        .heading {
+            font-size: 1.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Input field styling */
+        .input-field {
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            outline: none;
+            background-color: transparent;
+            border: 2px solid #27272a;
+            color: white;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Submit button styling */
+        .submit-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            background-color: #3b82f6;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Create account button container */
+        .create-account-container {
+            padding: 2.5rem;
+            margin: 1.25rem;
+            margin-left: 1.75rem;
+        }
+
+        /* Create account button styling */
+        .create-account-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            background-color: #22c55e;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="heading">Login your Account</h3>
+        <form action="/post/login" method="POST">
+            <input class="input-field" type="email" placeholder="email" name="email">
+            <input class="input-field" type="password" placeholder="password" name="password">
+            <input class="submit-btn" type="submit" value="Login Account">
+        </form>
+        <div class="create-account-container">
+            <a href="http://localhost:3000/post/index" class="create-account-btn">Create Account</a>
+        </div>
+    </div>
+</body>
+</html>

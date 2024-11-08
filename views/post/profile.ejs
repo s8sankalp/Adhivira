@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Main container styling */
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #18181b;
+            color: white;
+            padding: 2.5rem;
+        }
+
+        /* Logout button styling */
+        .logout-btn {
+            background-color: #ef4444;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            margin-bottom: 1.25rem;
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Flex container for profile and greeting */
+        .flex-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        /* Profile picture container */
+        .profile-pic-container {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: #ef4444;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        /* Profile image styling */
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Greeting heading */
+        .heading {
+            font-size: 1.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Post form elements */
+        .textarea {
+            padding: 0.75rem;
+            outline: none;
+            width: 33.333%;
+            resize: none;
+            background-color: transparent;
+            border: 2px solid #27272a;
+            border-radius: 0.375rem;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 10rem;
+            padding: 0.75rem;
+            background-color: #3b82f6;
+            border-radius: 0.375rem;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: white;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /* Post container styling */
+        .posts {
+            margin-top: 5rem;
+        }
+
+        .post-title {
+            color: #a1a1aa;
+        }
+
+        .post-container {
+            margin-top: 0.75rem;
+            border-radius: 0.375rem;
+            background-color: #27272a;
+            border: 2px solid #525252;
+            width: 33.333%;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+        }
+
+        .post-author {
+            color: #3b82f6;
+            margin-bottom: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        .post-content {
+            font-size: 0.875rem;
+            letter-spacing: -0.015em;
+            margin-left: 0.5rem;
+        }
+
+        .post-likes {
+            margin-top: 0.5rem;
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* Button links */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .like-btn {
+            color: #3b82f6;
+            margin-left: 0.5rem;
+            text-decoration: none;
+        }
+
+        .edit-btn {
+            color: #737373;
+            margin-left: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flex justify-end">
+            <a class="logout-btn" href="/post/logout">Logout</a>
+        </div>
+        <div class="flex-container">
+            <div class="profile-pic-container">
+                <img class="profile-img" src="/images/uploads/<%= user.profilepic %>" alt="">
+            </div>
+            <h3 class="heading">Hello, <%= user.username %></h3>
+        </div>
+        <h5>You can create a post!</h5>
+        <form method="post" action="/post">
+            <textarea placeholder="What's on your mind?!" class="textarea" name="content"></textarea>
+            <input class="submit-btn" type="submit" value="Create new post">
+        </form>
+        <div class="posts">
+            <h3 class="post-title">Your Posts</h3>
+            <div class="post-container">
+                <% user.posts.reverse().forEach(function(post) { %>
+                    <div class="post">
+                        <h4 class="post-author"><%= user.username %></h4>
+                        <p class="post-content"><%= post.content %></p>
+                        <small class="post-likes"><%= post.likes.length %> <%= post.likes.indexOf(user._id) === -1 ? "Unlike" : "like" %></small>
+                        <div class="btn-group">
+                            <a class="like-btn" href="/like/<%= post._id %>">Like</a>
+                            <a class="edit-btn" href="/edit/<%= post._id %>">Edit</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

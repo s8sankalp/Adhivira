@@ -1,0 +1,24 @@
+<!-- views/cart/index.ejs -->
+
+<h1>Your Cart</h1>
+
+<% if (cart && cart.items && cart.items.length > 0) { %>
+  <ul>
+    <% cart.items.forEach(item => { %>
+      <li>
+        Product: <%= item.productId.name %> - Quantity: <%= item.quantity %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <p>Total Quantity: <%= cart.totalQuantity %></p>
+  <p>Total Price: $<%= cart.totalPrice.toFixed(2) %></p>
+
+  <form action="/cart/clear" method="POST">
+    <button type="submit">Clear Cart</button>
+  </form>
+<% } else { %>
+  <p>Your cart is empty.</p>
+<% } %>
+
+<a href="/products">Continue Shopping</a>

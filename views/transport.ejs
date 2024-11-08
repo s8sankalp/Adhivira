@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Transport System</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e04c3f 0%, #5dc7ee 100%);
+            color: #333;
+        }
+        
+        /* Container Styles */
+        .container {
+            width: 100%;
+            max-width: 700px;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: scale(1.02);
+        }
+        
+        h1 {
+            color: #ffcc00; /* Yellow instead of pink */
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .icon {
+            color: #ffcc00; /* Yellow instead of pink */
+            margin-right: 0.5rem;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        label {
+            font-weight: bold;
+            color: #000; /* Text color updated to black */
+            margin-bottom: 0.5rem;
+        }
+        
+        input, select {
+            width: 80%;
+            padding: 0.8rem;
+            border: 1px solid #ffcc00; /* Yellow border */
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #000; /* Text color updated to black */
+        }
+
+        .fare-display {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            color: #ffcc00; /* Yellow instead of pink */
+            font-weight: bold;
+        }
+        
+        button {
+            width: 80%;
+            padding: 0.8rem;
+            background-color: #ffcc00; /* Yellow instead of pink */
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #e6b800; /* Darker yellow for hover effect */
+        }
+        
+        /* Footer Styles */
+        footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        footer a {
+            color: #ffcc00; /* Yellow instead of pink */
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Title and Subtitle -->
+        <h1><i class="fas fa-car icon"></i> Emergency Transport System</h1>
+        <p>Safe and reliable rides for emergency transportation.</p>
+        
+        <!-- Ride Request Form -->
+        <div class="input-group">
+            <label for="pickup"><i class="fas fa-map-marker-alt icon"></i> Pickup Location</label>
+            <input type="text" id="pickup" name="pickup" placeholder="Enter pickup location" required>
+            
+            <label for="destination"><i class="fas fa-map-marker-alt icon"></i> Destination</label>
+            <input type="text" id="destination" name="destination" placeholder="Enter destination" required>
+            
+            <label for="vehicle"><i class="fas fa-car-side icon"></i> Select Vehicle</label>
+            <select id="vehicle" name="vehicle" onchange="calculateFare()" required>
+                <option value="">Choose a vehicle</option>
+                <option value="car">Car</option>
+                <option value="ambulance">Ambulance</option>
+                <option value="bike">Bike</option>
+            </select>
+            
+            <!-- Fare Display -->
+            <div class="fare-display" id="fareDisplay">Estimated Fare: $0.00</div>
+            
+            <button onclick="submitRequest()">Request Ride</button>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p>Emergency Transport System &copy; 2024</p>
+            <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        function calculateFare() {
+            const vehicleType = document.getElementById("vehicle").value;
+            let fare = 0;
+            
+            if (vehicleType === "car") {
+                fare = 15;
+            } else if (vehicleType === "ambulance") {
+                fare = 30;
+            } else if (vehicleType === "bike") {
+                fare = 10;
+            }
+            
+            document.getElementById("fareDisplay").innerText = Estimated Fare: $${fare.toFixed(2)};
+        }
+
+        function submitRequest() {
+            const pickup = document.getElementById("pickup").value;
+            const destination = document.getElementById("destination").value;
+            const vehicle = document.getElementById("vehicle").value;
+            
+            if (pickup && destination && vehicle) {
+                alert("Your ride request has been submitted successfully!\nYour driver is on the way.");
+            } else {
+                alert("Please fill in all fields before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>
